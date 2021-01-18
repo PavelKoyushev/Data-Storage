@@ -6,26 +6,38 @@
 //
 
 import UIKit
+import RealmSwift
 
 class WeatherViewController: UIViewController {
 
     @IBOutlet private weak var currentWeather: UILabel!
     @IBOutlet private weak var tableView: UITableView!
     
+    private var dataManager = WeatherNetwork.shared
+    private var weather: Results<Weather>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCurrentWeather()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadAlamofire(completion: {self.tableView.reloadData(); self.setCurrentWeather()})
+        getWeather()
+        updateWeather()
     }
 }
 
 extension WeatherViewController {
+    func getWeather() {
+        self.weather = dataManager.getDays()
+    }
+    
+    func updateWeather() {
+        dataManager.loadAlamofire(completion: {self.tableView.reloadData(); self.setCurrentWeather()})
+    }
+    
     func setCurrentWeather(){
-        if days.count > 0 {
-            currentWeather.text = "\(days[0].temp) \(days[0].weather)"
+        if weather.count > 0 {
+            currentWeather.text = "\(weather[0].temp) \(weather[0].weather)"
         } else {
             currentWeather.text = "0 nan"
         }
@@ -34,11 +46,11 @@ extension WeatherViewController {
 
 extension WeatherViewController: UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
-        return days.count
+        return weather.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return days[section].day
+        return weather[section].day
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,8 +60,8 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! WeatherTableViewCell
         
-        cell.weatherLabel.text = days[indexPath.section].weather
-        cell.tempLabel.text = "\(days[indexPath.section].temp)"
+        cell.weatherLabel.text = weather[indexPath.section].weather
+        cell.tempLabel.text = "\(weather[indexPath.section].temp)"
         return cell
     }
 }

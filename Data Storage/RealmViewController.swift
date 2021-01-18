@@ -44,9 +44,11 @@ class RealmViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         getAllTasks()
     }
-    
+}
+
+extension RealmViewController {
     private func getAllTasks() {
-        self.allTasks = RealmDataManager.shared.getTasks()
+        self.allTasks = dataManager.getTasks()
     }
 }
 

@@ -10,7 +10,7 @@
 		45B1D480B607D29D9CD7B4F7 /* Pods_Data_Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA525610F41CD9C500EADB4 /* Pods_Data_Storage.framework */; };
 		EB3F8A6C25B21A5D0003B69B /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3F8A6B25B21A5D0003B69B /* WeatherTableViewCell.swift */; };
 		EB793D0F25B204E000459C15 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB793D0E25B204E000459C15 /* WeatherViewController.swift */; };
-		EB793D1225B208D500459C15 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB793D1125B208D500459C15 /* Network.swift */; };
+		EB793D1225B208D500459C15 /* WeatherNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB793D1125B208D500459C15 /* WeatherNetwork.swift */; };
 		EB793D1525B20A1900459C15 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB793D1425B20A1900459C15 /* Weather.swift */; };
 		EBA92ADC25B0AE13003755BA /* RealmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA92ADB25B0AE13003755BA /* RealmViewController.swift */; };
 		EBA92AED25B0B4E3003755BA /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA92AEC25B0B4E3003755BA /* RealmDataManager.swift */; };
@@ -35,7 +35,7 @@
 		DEA525610F41CD9C500EADB4 /* Pods_Data_Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Data_Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB3F8A6B25B21A5D0003B69B /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		EB793D0E25B204E000459C15 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
-		EB793D1125B208D500459C15 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		EB793D1125B208D500459C15 /* WeatherNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetwork.swift; sourceTree = "<group>"; };
 		EB793D1425B20A1900459C15 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		EBA92ADB25B0AE13003755BA /* RealmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmViewController.swift; sourceTree = "<group>"; };
 		EBA92AEC25B0B4E3003755BA /* RealmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				EB793D1425B20A1900459C15 /* Weather.swift */,
-				EB793D1125B208D500459C15 /* Network.swift */,
+				EB793D1125B208D500459C15 /* WeatherNetwork.swift */,
 				EB3F8A6B25B21A5D0003B69B /* WeatherTableViewCell.swift */,
 				EB793D0E25B204E000459C15 /* WeatherViewController.swift */,
 			);
@@ -290,7 +290,7 @@
 				EBB159A225B095A4005814CF /* SceneDelegate.swift in Sources */,
 				EBA92AED25B0B4E3003755BA /* RealmDataManager.swift in Sources */,
 				EB793D1525B20A1900459C15 /* Weather.swift in Sources */,
-				EB793D1225B208D500459C15 /* Network.swift in Sources */,
+				EB793D1225B208D500459C15 /* WeatherNetwork.swift in Sources */,
 				EBA92B1C25B0D5C9003755BA /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
