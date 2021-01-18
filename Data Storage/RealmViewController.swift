@@ -47,7 +47,6 @@ class RealmViewController: UIViewController {
     
     private func getAllTasks() {
         self.allTasks = RealmDataManager.shared.getTasks()
-        //перевернуть массив задач
     }
 }
 

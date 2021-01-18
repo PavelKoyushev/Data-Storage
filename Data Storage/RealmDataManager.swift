@@ -16,16 +16,12 @@ class RealmDataManager {
     
     private init() {}
     
-    func getTasks() -> Results<TodoObject> {
-        return realm.objects(TodoObject.self) // возвращаем все объекты
-    }
-    
     func add(taskText: String) {
         let item = TodoObject()
         try! realm.write {
             realm.add(item)
-            item.date = DateString() // привязываем дату
-            item.task = taskText // передаем текст
+            item.date = DateString()
+            item.task = taskText
         }
         realm.refresh()
     }
@@ -36,7 +32,12 @@ class RealmDataManager {
         }
     }
     
-    // MARK: - Date to String
+    func getTasks() -> Results<TodoObject> {
+        return realm.objects(TodoObject.self)
+    }
+}
+
+extension RealmDataManager {
     private func DateString() -> String {
         let (rawDate, dateFormatter) = (Date(), DateFormatter())
             dateFormatter.dateFormat = "dd.MM.YY HH:mm"

@@ -40,11 +40,6 @@ class TodoCDViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    private func saveTask(task: String, date: String) {
-        CoreDataManager.sharedManager.insertTask(task: task, date: date)
-        CoreDataManager.sharedManager.saveContext()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -52,6 +47,13 @@ class TodoCDViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
         fetchAllTasks()
+    }
+}
+
+extension TodoCDViewController {
+    private func saveTask(task: String, date: String) {
+        CoreDataManager.sharedManager.insertTask(task: task, date: date)
+        CoreDataManager.sharedManager.saveContext()
     }
     
     private func fetchAllTasks(){
@@ -76,9 +78,12 @@ extension TodoCDViewController: UITableViewDelegate, UITableViewDataSource {
                 reuseIdentifier: simpleTableIdentifier
             )
         }
+        
         let tasks = tasksData[indexPath.row]
+        
         cell?.textLabel?.text = tasks.value(forKeyPath: "task") as? String
         cell?.detailTextLabel?.text = tasks.value(forKeyPath: "date") as? String
+        
         return cell!
     }
 }

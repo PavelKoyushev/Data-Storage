@@ -13,20 +13,21 @@ class Persistance {
     private let FirstRun = "UserDataPersistance.FirstRun"
     
     static let shared = Persistance()
+    
     private init() {}
     
     var FirstNameData: String? {
         set { UserDefaults.standard.set (newValue, forKey: firstName) }
         get { return UserDefaults.standard.string (forKey: firstName) }
     }
+    
     var LastNameData: String? {
         set { UserDefaults.standard.set (newValue, forKey: lastName) }
         get { return UserDefaults.standard.string (forKey: lastName) }
     }
     
-    
-    var FirstRunData: String? {
-        set { UserDefaults.standard.set (newValue, forKey: FirstRun) }
-        get { return UserDefaults.standard.string (forKey: FirstRun) }
-    }
+//    var FirstRunData: String? {
+//        set { UserDefaults.standard.set (newValue, forKey: FirstRun) }
+//        get { return UserDefaults.standard.string (forKey: FirstRun) }
+//    }
 }

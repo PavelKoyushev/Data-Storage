@@ -9,8 +9,8 @@ import UIKit
 
 class WeatherViewController: UIViewController {
 
-    @IBOutlet weak var currentWeather: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var currentWeather: UILabel!
+    @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +20,15 @@ class WeatherViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         loadAlamofire(completion: {self.tableView.reloadData(); self.setCurrentWeather()})
     }
-    
+}
+
+extension WeatherViewController {
     func setCurrentWeather(){
         if days.count > 0 {
             currentWeather.text = "\(days[0].temp) \(days[0].weather)"
-        } else { currentWeather.text = "0 nan" }
+        } else {
+            currentWeather.text = "0 nan"
+        }
     }
 }
 
@@ -48,7 +52,5 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate{
         cell.tempLabel.text = "\(days[indexPath.section].temp)"
         return cell
     }
-    
-    
 }
 
